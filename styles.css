@@ -1800,3 +1800,162 @@ th { color: var(--cyan); text-transform: uppercase; font-size: 12px; letter-spac
     transform: translateY(0) scale(1);
   }
 }
+
+/* Final phone guardrails: prevent clipping and make the hero intentionally mobile. */
+@media (max-width: 767px) {
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  .site-header,
+  .hero,
+  .section,
+  .site-footer {
+    width: calc(100% - 20px);
+    max-width: calc(100% - 20px);
+  }
+
+  .hero {
+    margin-inline: auto;
+    padding: 24px 12px 18px;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    inset: 0;
+  }
+
+  .hero::after {
+    opacity: .46;
+  }
+
+  .hero-copy,
+  .hero-stage,
+  .hero-side,
+  .hero-announcement,
+  .hero-stats,
+  .countdown-card,
+  .why-panel {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .hero .eyebrow {
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    font-size: clamp(10px, 3.2vw, 12px);
+    line-height: 1.45;
+    letter-spacing: .1em;
+  }
+
+  .hero .eyebrow::before,
+  .hero .eyebrow::after {
+    flex: 0 0 18px;
+  }
+
+  .hero-copy h1 {
+    max-width: 100%;
+    overflow: hidden;
+    font-size: clamp(38px, 13.5vw, 54px);
+    line-height: .92;
+    letter-spacing: 0;
+    word-break: normal;
+  }
+
+  .hero-copy h1 span {
+    display: block;
+    max-width: 100%;
+    overflow-wrap: normal;
+  }
+
+  .hero-copy h1 span:nth-child(3) {
+    font-size: .86em;
+  }
+
+  .hero-copy .tagline {
+    font-size: 16px;
+    overflow-wrap: break-word;
+  }
+
+  .event-meta {
+    width: 100%;
+  }
+
+  .event-meta span {
+    max-width: 100%;
+    overflow-wrap: break-word;
+    padding: 12px;
+  }
+
+  .hero-actions {
+    width: 100%;
+  }
+
+  .hero-actions .btn {
+    justify-content: center;
+    max-width: 100%;
+  }
+
+  .hero-stage {
+    min-height: 290px;
+  }
+
+  .holo-scene {
+    width: 100%;
+    height: 300px;
+    min-height: 300px;
+  }
+
+  .holo-prism {
+    width: clamp(158px, 49vw, 210px);
+    height: clamp(218px, 65vw, 282px);
+  }
+
+  .energy-platform {
+    bottom: 9%;
+    width: min(240px, 80%);
+  }
+
+  .hero-side .countdown {
+    gap: 8px;
+  }
+
+  .hero-side .countdown div {
+    min-width: 0;
+    padding: 13px 6px;
+  }
+
+  .hero-side .countdown strong {
+    font-size: clamp(26px, 10vw, 38px);
+  }
+
+  .why-panel li {
+    padding-right: 8px;
+  }
+
+  .hero-announcement,
+  .hero-stats {
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 420px) {
+  .brand img {
+    width: 126px;
+  }
+
+  .nav-toggle {
+    min-width: 54px;
+    padding-inline: 10px;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(36px, 13vw, 50px);
+  }
+}
