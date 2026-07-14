@@ -12,6 +12,13 @@ const $ = (selector) => document.querySelector(selector);
 const getRegistrations = () => JSON.parse(localStorage.getItem(registrationsKey) || "[]");
 const setRegistrations = (items) => localStorage.setItem(registrationsKey, JSON.stringify(items));
 
+function setFormMessage(output, message, type = "success") {
+  if (!output) return;
+  output.textContent = message;
+  output.classList.remove("is-success", "is-error");
+  output.classList.add(type === "error" ? "is-error" : "is-success");
+}
+
 function updateCountdown() {
   const distance = Math.max(0, eventStart - Date.now());
   const parts = {
@@ -92,20 +99,20 @@ function setupRegistration() {
     event.preventDefault();
     const output = $("#registrationOutput");
     if (Date.now() > registrationDeadline) {
-      output.textContent = "Registration deadline has passed.";
+      setFormMessage(output, "Registration deadline has passed.", "error");
       return;
     }
     const data = formToObject(form);
     const registrations = getRegistrations();
     const duplicate = registrations.some((item) => item.email.toLowerCase() === data.email.toLowerCase() || item.roll.toLowerCase() === data.roll.toLowerCase());
     if (duplicate) {
-      output.textContent = "Duplicate registration detected for this email or roll number.";
+      setFormMessage(output, "Duplicate registration detected for this email or roll number.", "error");
       return;
     }
     const registration = { ...data, id: makeRegistrationId(), status: "Submitted", createdAt: new Date().toISOString(), project: {} };
     registrations.push(registration);
     setRegistrations(registrations);
-    output.textContent = `Registration submitted. ID: ${registration.id}. Confirmation email queued for ${registration.email}.`;
+    setFormMessage(output, `Registration submitted. ID: ${registration.id}. Confirmation email queued for ${registration.email}.`);
     form.reset();
     renderAdminTable();
   });
@@ -201,6 +208,80 @@ function setupSimpleForms() {
   });
 }
 
+function setupNavigationState() {
+  const links = Array.from(document.querySelectorAll(".site-nav a[href^='#']"));
+  const sections = links
+    .map((link) => document.querySelector(link.getAttribute("href")))
+    .filter(Boolean);
+
+  if (!links.length || !sections.length) return;
+
+  const markActive = (id) => {
+    links.forEach((link) => {
+      link.classList.toggle("active", link.getAttribute("href") === `#${id}`);
+    });
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    const visible = entries
+      .filter((entry) => entry.isIntersecting)
+      .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+    if (visible) markActive(visible.target.id);
+  }, { rootMargin: "-28% 0px -58% 0px", threshold: [0.12, 0.28, 0.45] });
+
+  sections.forEach((section) => observer.observe(section));
+}
+
+function setupRevealAnimations() {
+  const revealItems = document.querySelectorAll([
+    ".section-heading",
+    ".highlight-grid article",
+    ".card-grid article",
+    ".people-grid article",
+    ".timeline article",
+    ".stat-panel div",
+    ".prize-panel",
+    ".announcement-panel",
+    ".form-grid",
+    ".compact-form",
+    ".faq-grid details",
+    ".sponsor-row span",
+    ".gallery-grid div",
+    ".contact-list span",
+    ".admin-stats span"
+  ].join(","));
+
+  revealItems.forEach((item, index) => {
+    item.classList.add("reveal");
+    item.style.setProperty("--reveal-delay", `${Math.min(index % 8, 5) * 55}ms`);
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.14, rootMargin: "0px 0px -8% 0px" });
+
+  revealItems.forEach((item) => observer.observe(item));
+}
+
+function setupPointerGlow() {
+  const heroMedia = document.querySelector(".hero-media");
+  window.addEventListener("pointermove", (event) => {
+    const x = Math.round((event.clientX / window.innerWidth) * 100);
+    const y = Math.round((event.clientY / window.innerHeight) * 100);
+    document.documentElement.style.setProperty("--mouse-x", `${x}%`);
+    document.documentElement.style.setProperty("--mouse-y", `${y}%`);
+    if (heroMedia && window.matchMedia("(min-width: 981px)").matches) {
+      const lift = ((event.clientY / window.innerHeight) - .5) * -14;
+      heroMedia.style.setProperty("--parallax-y", `${lift.toFixed(1)}px`);
+    }
+  }, { passive: true });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   $(".nav-toggle").addEventListener("click", (event) => {
     const nav = $(".site-nav");
@@ -215,5 +296,8 @@ document.addEventListener("DOMContentLoaded", () => {
   setupDashboard();
   setupAdmin();
   setupSimpleForms();
+  setupNavigationState();
+  setupRevealAnimations();
+  setupPointerGlow();
   renderAdminTable();
 });
