@@ -2059,63 +2059,15 @@ th { color: var(--cyan); text-transform: uppercase; font-size: 12px; letter-spac
 }
 
 @media (max-width: 767px) {
+  .hero {
+    grid-template-areas:
+      "copy"
+      "side"
+      "announce"
+      "stats";
+  }
+
   .hero-stage {
-    min-height: 178px;
-    margin-block: -4px 2px;
-  }
-
-  .hero-stage::before {
-    top: -8%;
-    bottom: 3%;
-    opacity: .58;
-  }
-
-  .hero-stage::after {
-    bottom: 6%;
-    width: min(170px, 58%);
-    opacity: .72;
-  }
-
-  .holo-scene {
-    height: 186px;
-    min-height: 186px;
-    overflow: hidden;
-  }
-
-  .holo-scene::before {
-    inset: 0 7%;
-    opacity: .36;
-  }
-
-  .holo-scene::after {
-    opacity: .44;
-    transform: translateY(36%);
-  }
-
-  .holo-prism {
-    width: clamp(92px, 34vw, 132px);
-    height: clamp(130px, 48vw, 184px);
-    filter:
-      drop-shadow(0 0 14px rgba(0, 212, 255, .92))
-      drop-shadow(0 0 34px rgba(155, 77, 255, .62));
-  }
-
-  .energy-platform {
-    bottom: 7%;
-    width: min(170px, 58%);
-  }
-
-  .city-depth,
-  .circuit-web {
-    display: none;
-  }
-
-  .light-beam {
-    width: 42px;
-    opacity: .34;
-  }
-
-  .particle-field span:nth-child(n+7) {
     display: none;
   }
 
