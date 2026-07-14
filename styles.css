@@ -1984,16 +1984,27 @@ th { color: var(--cyan); text-transform: uppercase; font-size: 12px; letter-spac
 .why-panel li::after {
   content: "";
   position: absolute;
-  left: 22px;
+  left: 12px;
   top: 50%;
   z-index: 1;
-  width: 18px;
-  height: 18px;
-  border: 2px solid rgba(255, 255, 255, .82);
-  border-radius: 7px;
-  transform: translateY(-50%) rotate(45deg);
-  box-shadow: 0 0 14px rgba(255, 255, 255, .32);
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 12px;
+  transform: translateY(-50%);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 950;
+  letter-spacing: .02em;
+  text-shadow: 0 0 10px rgba(255, 255, 255, .8), 0 0 18px rgba(0, 212, 255, .7);
 }
+
+.why-panel li:nth-child(1)::after { content: "$"; }
+.why-panel li:nth-child(2)::after { content: "ID"; font-size: 11px; }
+.why-panel li:nth-child(3)::after { content: "M"; }
+.why-panel li:nth-child(4)::after { content: "N"; }
 
 @media (min-width: 1025px) and (max-width: 1500px) {
   .hero {
@@ -2002,16 +2013,16 @@ th { color: var(--cyan); text-transform: uppercase; font-size: 12px; letter-spac
   }
 
   .hero-copy {
-    max-width: 430px;
+    max-width: 390px;
   }
 
   .hero-copy h1 {
-    font-size: clamp(52px, 4.65vw, 76px);
+    font-size: clamp(48px, 4.05vw, 66px);
     line-height: .9;
   }
 
   .hero-copy h1 span:nth-child(3) {
-    font-size: .88em;
+    font-size: .8em;
   }
 
   .holo-scene {
@@ -2038,8 +2049,9 @@ th { color: var(--cyan); text-transform: uppercase; font-size: 12px; letter-spac
   }
 
   .orbit-innovate {
-    top: 7%;
-    left: 13%;
+    top: 5%;
+    left: 31%;
+    z-index: 7;
   }
 
   .orbit-build {
@@ -2083,8 +2095,13 @@ th { color: var(--cyan); text-transform: uppercase; font-size: 12px; letter-spac
   }
 
   .why-panel li::after {
-    left: 19px;
-    width: 16px;
-    height: 16px;
+    left: 10px;
+    width: 34px;
+    height: 34px;
+    font-size: 12px;
+  }
+
+  .why-panel li:nth-child(2)::after {
+    font-size: 10px;
   }
 }
