@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="IEEE PRISMTECH Hackathon registration, dashboard, schedule, problem statements, committees, announcements, sponsors, and admin tools.">
+    <title>IEEE PRISMTECH Hackathon</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#home" aria-label="IEEE PRISMTECH home">
+        <img src="assets/logo.svg" alt="IEEE PRISMTECH Hackathon logo">
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">Menu</button>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#register">Register</a>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#problems">Problems</a>
+        <a href="#admin">Admin</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="home" class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">International IEEE student innovation challenge</p>
+          <h1>IEEE PRISMTECH Hackathon</h1>
+          <p class="tagline">Build bold, ethical technology for smarter campuses, safer communities, and sustainable futures.</p>
+          <div class="event-meta">
+            <span>26 September 2026</span>
+            <span>24-hour hackathon</span>
+            <span>KLH Aziz Nagar Campus</span>
+            <span>Register by 21 September 2026</span>
+          </div>
+          <div class="hero-actions">
+            <a class="btn primary" href="#register">Register Now</a>
+            <a class="btn secondary" href="#problems">Explore Domains</a>
+          </div>
+          <div class="countdown" aria-label="Countdown timer">
+            <div><strong id="days">00</strong><span>Days</span></div>
+            <div><strong id="hours">00</strong><span>Hours</span></div>
+            <div><strong id="minutes">00</strong><span>Minutes</span></div>
+            <div><strong id="seconds">00</strong><span>Seconds</span></div>
+          </div>
+        </div>
+        <div class="hero-media" aria-hidden="true">
+          <img src="assets/hero-prism.svg" alt="">
+        </div>
+      </section>
+
+      <section class="section intro-section">
+        <div>
+          <p class="eyebrow">What is PRISMTECH?</p>
+          <h2>PRISMTECH is a 24-hour IEEE hackathon for practical innovation.</h2>
+          <p>Teams prototype solutions across AI, cybersecurity, sustainability, healthcare, smart infrastructure, and human-centered education with guidance from mentors, faculty, and industry experts.</p>
+        </div>
+        <div class="highlight-grid">
+          <article><span>Award</span><h3>Premium Prizes</h3><p>Winner, runner-up, and special category awards.</p></article>
+          <article><span>Cert</span><h3>Certificates</h3><p>Participation certificates for all eligible teams.</p></article>
+          <article><span>Guide</span><h3>Mentors</h3><p>Technical and pitching support throughout the event.</p></article>
+          <article><span>Link</span><h3>Networking</h3><p>Connect with peers, judges, sponsors, and organizers.</p></article>
+        </div>
+      </section>
+
+      <section id="about" class="section split">
+        <div>
+          <p class="eyebrow">About the Hackathon</p>
+          <h2>Objective, format, eligibility, and participant benefits.</h2>
+          <p>The objective is to transform student ideas into credible prototypes with social, technical, and entrepreneurial value. Participants may choose from domains including AI/ML, cybersecurity, IoT, fintech, sustainability, healthcare, accessibility, education technology, and smart cities.</p>
+          <ul class="check-list">
+            <li>Open to undergraduate and postgraduate students from recognized institutions.</li>
+            <li>Teams of 2-4 members; one participant acts as team leader.</li>
+            <li>Hybrid-ready 24-hour build sprint with mentoring, evaluation, final pitch, and demo.</li>
+            <li>Benefits include portfolio projects, IEEE exposure, leadership opportunities, and industry interaction.</li>
+          </ul>
+        </div>
+        <aside class="stat-panel">
+          <div><strong>24h</strong><span>Build Duration</span></div>
+          <div><strong>10+</strong><span>Problem Domains</span></div>
+          <div><strong>11</strong><span>Committees</span></div>
+          <div><strong>4</strong><span>Members per Team</span></div>
+        </aside>
+      </section>
+
+      <section id="register" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Registration System</p>
+          <h2>Register your team</h2>
+          <p>Form validation, duplicate email checks, automatic registration ID, local receipt generation, and confirmation message are included in this static demo.</p>
+        </div>
+        <form id="registrationForm" class="form-grid">
+          <label>Participant name<input name="participantName" required autocomplete="name"></label>
+          <label>Roll number / college ID<input name="roll" required></label>
+          <label>Email<input name="email" type="email" required autocomplete="email"></label>
+          <label>Phone number<input name="phone" type="tel" required pattern="[0-9+\-\s]{8,15}"></label>
+          <label>College / university<input name="college" required></label>
+          <label>Department<input name="department" required></label>
+          <label>Year<input name="year" required placeholder="Example: 3rd year"></label>
+          <label>Branch<input name="branch" required></label>
+          <label>Team name<input name="teamName" required></label>
+          <label>Team leader details<input name="leader" required placeholder="Name, email, phone"></label>
+          <label class="wide">Team-member details<textarea name="members" required placeholder="List each member with name, roll number, email, and phone"></textarea></label>
+          <label>Preferred problem domain<select name="domain" required><option value="">Choose domain</option><option>AI for Social Good</option><option>Cybersecurity</option><option>Healthcare Technology</option><option>Sustainable Cities</option><option>FinTech</option><option>Open Innovation</option></select></label>
+          <label>ID card / document upload<input name="document" type="file" accept=".pdf,.jpg,.jpeg,.png"></label>
+          <label class="wide consent"><input name="consent" type="checkbox" required> I consent to IEEE PRISMTECH rules, privacy policy, and official email / WhatsApp communication.</label>
+          <button class="btn primary" type="submit">Submit Registration</button>
+          <output id="registrationOutput" class="form-output"></output>
+        </form>
+      </section>
+
+      <section id="dashboard" class="section split">
+        <div>
+          <p class="eyebrow">Team Dashboard</p>
+          <h2>Login, update team details, and submit project links.</h2>
+          <form id="dashboardLogin" class="compact-form">
+            <label>Email or registration ID<input name="loginId" required></label>
+            <button class="btn secondary" type="submit">Open Dashboard</button>
+          </form>
+          <div id="dashboardPanel" class="dashboard-panel" hidden>
+            <h3 id="dashTitle">Team details</h3>
+            <p id="dashStatus"></p>
+            <label>Project title<input id="projectTitle"></label>
+            <label>Presentation link<input id="presentationLink" type="url" placeholder="https://"></label>
+            <label>GitHub link<input id="githubLink" type="url" placeholder="https://github.com/..."></label>
+            <label>Demo link<input id="demoLink" type="url" placeholder="https://"></label>
+            <div class="button-row">
+              <button class="btn primary" id="saveProject" type="button">Save Project</button>
+              <button class="btn secondary" id="downloadReceipt" type="button">Download Receipt</button>
+            </div>
+          </div>
+        </div>
+        <div class="announcement-panel">
+          <h3>Important Announcements</h3>
+          <ul id="announcementList"></ul>
+        </div>
+      </section>
+
+      <section id="schedule" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Hackathon Schedule</p>
+          <h2>From check-in to prize distribution</h2>
+        </div>
+        <div class="timeline">
+          <article><time>08:00</time><h3>Registration and check-in</h3><p>QR-based participant check-in and kit distribution.</p></article>
+          <article><time>09:30</time><h3>Opening ceremony</h3><p>Welcome address, IEEE briefing, and sponsor notes.</p></article>
+          <article><time>10:30</time><h3>Problem release</h3><p>Final domains, requirements, and expected outcomes published.</p></article>
+          <article><time>14:00</time><h3>Mentoring round 1</h3><p>Architecture, feasibility, and user validation support.</p></article>
+          <article><time>20:00</time><h3>Evaluation round 1</h3><p>Prototype progress review and feedback.</p></article>
+          <article><time>09:00</time><h3>Final pitching</h3><p>Presentation, demo, judging, and Q&A.</p></article>
+          <article><time>15:00</time><h3>Valedictory ceremony</h3><p>Prize distribution, certificates, and recognition.</p></article>
+        </div>
+      </section>
+
+      <section id="problems" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Problem Statements</p>
+          <h2>Choose a domain and build with intent</h2>
+        </div>
+        <div class="card-grid">
+          <article class="problem-card"><span>AI</span><h3>AI Campus Copilot</h3><p>Build an assistant for student services, events, academic support, and accessibility.</p><strong>Expected: Working prototype + responsible AI notes</strong><a href="downloads/problem-statements.pdf" download>Download PDF</a></article>
+          <article class="problem-card"><span>Cybersecurity</span><h3>Phishing Shield</h3><p>Detect suspicious messages and train users through explainable risk signals.</p><strong>Expected: Detection flow + dashboard</strong><a href="downloads/problem-statements.pdf" download>Download PDF</a></article>
+          <article class="problem-card"><span>IoT</span><h3>Smart Energy Lab</h3><p>Monitor and optimize electricity usage in campus laboratories.</p><strong>Expected: Sensor model + savings insight</strong><a href="downloads/problem-statements.pdf" download>Download PDF</a></article>
+          <article class="problem-card muted"><span>Coming Soon</span><h3>Healthcare Track</h3><p>Problem statement will be released during the opening ceremony.</p><strong>Requirements pending</strong></article>
+        </div>
+      </section>
+
+      <section id="rules" class="section split">
+        <div>
+          <p class="eyebrow">Rules and Guidelines</p>
+          <h2>Clear rules for fair innovation</h2>
+          <ul class="check-list">
+            <li>Eligible students must carry institutional ID and register once only.</li>
+            <li>Submissions must include project summary, presentation, GitHub link, and demo link.</li>
+            <li>Judging criteria: innovation, feasibility, impact, technical depth, UX, and pitch quality.</li>
+            <li>Code of conduct, plagiarism, safety violations, or disruptive behavior can lead to disqualification.</li>
+            <li>Teams retain intellectual property; shared sponsor datasets must follow stated license terms.</li>
+          </ul>
+          <a class="btn secondary" href="./downloads/rulebook.pdf" download="IEEE-PRISMTECH-Rulebook.pdf" target="_blank" rel="noopener">Download Rulebook</a>
+        </div>
+        <div class="prize-panel">
+          <h3>Prizes and Recognition</h3>
+          <p><strong>Winner:</strong> trophy, cash award, IEEE spotlight, and mentor access.</p>
+          <p><strong>Runner-up:</strong> trophy, cash award, and sponsor recognition.</p>
+          <p><strong>Special awards:</strong> best social impact, best first-time team, and best technical execution.</p>
+        </div>
+      </section>
+
+      <section id="people" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Mentors, Judges, Speakers, and Organizers</p>
+          <h2>People powering PRISMTECH</h2>
+        </div>
+        <div class="people-grid">
+          <article><div class="avatar">SC</div><h3>Student General Chair</h3><p>IEEE Student Branch</p><a href="#">LinkedIn</a></article>
+          <article><div class="avatar">VC</div><h3>Vice Chairs</h3><p>Technical and Operations</p><a href="#">LinkedIn</a></article>
+          <article><div class="avatar">FC</div><h3>Faculty Coordinators</h3><p>Department and IEEE advisors</p><a href="#">LinkedIn</a></article>
+          <article><div class="avatar">MJ</div><h3>Mentors and Judges</h3><p>Industry, academia, and IEEE experts</p><a href="#">LinkedIn</a></article>
+        </div>
+      </section>
+
+      <section id="faq" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">FAQ</p>
+          <h2>Common participant questions</h2>
+        </div>
+        <div class="faq-grid">
+          <details open><summary>Is there a registration fee?</summary><p>Fee details can be configured by admins. Scholarships or waivers may be announced.</p></details>
+          <details><summary>Can I form a team after registering?</summary><p>Yes, team details can be edited before the registration deadline.</p></details>
+          <details><summary>Are food and accommodation provided?</summary><p>Meals, breaks, first-aid, and sick-room support are planned. Accommodation depends on availability.</p></details>
+          <details><summary>What should participants bring?</summary><p>Laptop, charger, ID card, required software, and backup internet access.</p></details>
+          <details><summary>Who is eligible?</summary><p>Students from recognized colleges and universities with valid institutional ID.</p></details>
+          <details><summary>What is the refund policy?</summary><p>Refund or cancellation terms will be published with the official rulebook.</p></details>
+        </div>
+      </section>
+
+      <section id="venue" class="section split">
+        <div>
+          <p class="eyebrow">Venue and Support</p>
+          <h2>KLH Aziz Nagar Campus</h2>
+          <p>Travel instructions, accommodation guidance, accessibility support, help desk contacts, emergency contacts, first-aid, and sick-room information will be shared with registered teams.</p>
+          <div class="contact-list">
+            <span>Official email: prismtech@ieee.example</span>
+            <span>WhatsApp help desk: +91 90000 00000</span>
+            <span>Emergency desk: +91 91111 11111</span>
+          </div>
+        </div>
+        <iframe class="map" title="Venue map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=IEEE%20Innovation%20Hub&output=embed"></iframe>
+      </section>
+
+      <section id="sponsors" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Sponsors and Partners</p>
+          <h2>Industry and community partnership</h2>
+        </div>
+        <div class="sponsor-row">
+          <span>Title Sponsor</span><span>Cloud Partner</span><span>AI Partner</span><span>Community Partner</span>
+        </div>
+        <form id="sponsorForm" class="compact-form inline-form">
+          <label>Become a sponsor<input name="sponsor" placeholder="Organization and contact email" required></label>
+          <button class="btn secondary" type="submit">Send Enquiry</button>
+        </form>
+      </section>
+
+      <section id="gallery" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Gallery and Media</p>
+          <h2>Photos, videos, social updates, and media coverage</h2>
+        </div>
+        <div class="gallery-grid">
+          <div></div><div></div><div></div><div></div>
+        </div>
+        <div class="social-links"><a href="#">Instagram</a><a href="#">LinkedIn</a><a href="#">YouTube</a><a href="#">Media Kit</a></div>
+      </section>
+
+      <section id="contact" class="section split">
+        <div>
+          <p class="eyebrow">Contact Page</p>
+          <h2>Reach the PRISMTECH team</h2>
+          <form id="contactForm" class="compact-form">
+            <label>Name<input name="name" required></label>
+            <label>Email<input name="email" type="email" required></label>
+            <label>Message<textarea name="message" required></textarea></label>
+            <button class="btn primary" type="submit">Send Enquiry</button>
+          </form>
+        </div>
+        <div class="contact-list">
+          <span>General enquiry: prismtech@ieee.example</span>
+          <span>WhatsApp: +91 90000 00000</span>
+          <span>Instagram: @ieee.prismtech</span>
+          <span>LinkedIn: IEEE PRISMTECH</span>
+        </div>
+      </section>
+
+      <section id="admin" class="section admin-section">
+        <div class="section-heading">
+          <p class="eyebrow">Admin Panel</p>
+          <h2>Registration, announcements, committees, exports, and check-in</h2>
+          <p>Demo password: <strong>admin123</strong></p>
+        </div>
+        <form id="adminLogin" class="compact-form inline-form">
+          <label>Admin password<input name="password" type="password" required></label>
+          <button class="btn primary" type="submit">Secure Login</button>
+        </form>
+        <div id="adminPanel" hidden>
+          <div class="admin-tools">
+            <input id="adminSearch" placeholder="Search registrations">
+            <button class="btn secondary" id="exportCsv" type="button">Export CSV</button>
+            <button class="btn secondary" id="publishAnnouncement" type="button">Publish Announcement</button>
+            <button class="btn secondary" id="generateCertificates" type="button">Generate Certificates</button>
+          </div>
+          <div class="admin-stats">
+            <span id="teamCount">0 teams</span><span>Registration tracking</span><span>QR check-in ready</span><span>Role-based access planned</span>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Reg ID</th><th>Team</th><th>Email</th><th>Domain</th><th>Status</th><th>Action</th></tr></thead>
+              <tbody id="registrationTable"></tbody>
+            </table>
+          </div>
+          <div class="admin-note">
+            <strong>Production integration checklist:</strong> connect secure authentication, database, email service, CAPTCHA, file storage, privacy-policy and terms pages, audit logs, certificate templates, and WhatsApp/email notification APIs.
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <img src="assets/logo.svg" alt="IEEE PRISMTECH Hackathon">
+      <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a> | Accessibility | (c) 2026 IEEE PRISMTECH Hackathon</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
