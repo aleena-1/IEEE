@@ -4,10 +4,11 @@ Static, responsive website for the IEEE PRISMTECH Hackathon with a premium futur
 
 ## Local Preview
 
-The site can be served from this directory with:
+The site can be served from this directory with Node:
 
 ```powershell
-python -m http.server 4173 --bind 127.0.0.1
+npm install
+npm start
 ```
 
 Then open:
@@ -15,6 +16,16 @@ Then open:
 ```text
 http://127.0.0.1:4173/
 ```
+
+## Render Web Service
+
+Use these settings on Render:
+
+- Language: Node
+- Branch: master
+- Root Directory: leave blank
+- Build Command: `npm install`
+- Start Command: `npm start`
 
 ## Demo Features
 
