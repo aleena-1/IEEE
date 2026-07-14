@@ -248,6 +248,7 @@ function setupRevealAnimations() {
     ".sponsor-row span",
     ".gallery-grid div",
     ".contact-list span",
+    ".hero-stats span",
     ".admin-stats span"
   ].join(","));
 
@@ -290,12 +291,23 @@ function setupPointerGlow() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  $(".nav-toggle").addEventListener("click", (event) => {
-    const nav = $(".site-nav");
+  const navToggle = $(".nav-toggle");
+  const nav = $(".site-nav");
+  navToggle.addEventListener("click", (event) => {
     nav.classList.toggle("open");
     event.currentTarget.setAttribute("aria-expanded", nav.classList.contains("open"));
   });
-  document.querySelectorAll(".site-nav a").forEach((link) => link.addEventListener("click", () => $(".site-nav").classList.remove("open")));
+  document.querySelectorAll(".site-nav a").forEach((link) => link.addEventListener("click", () => {
+    nav.classList.remove("open");
+    navToggle.setAttribute("aria-expanded", "false");
+  }));
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && nav.classList.contains("open")) {
+      nav.classList.remove("open");
+      navToggle.setAttribute("aria-expanded", "false");
+      navToggle.focus();
+    }
+  });
   updateCountdown();
   setInterval(updateCountdown, 1000);
   renderAnnouncements();
