@@ -270,6 +270,7 @@ function setupRevealAnimations() {
 
 function setupPointerGlow() {
   const heroMedia = document.querySelector(".hero-media");
+  const holoScene = document.querySelector(".holo-scene");
   window.addEventListener("pointermove", (event) => {
     const x = Math.round((event.clientX / window.innerWidth) * 100);
     const y = Math.round((event.clientY / window.innerHeight) * 100);
@@ -278,6 +279,12 @@ function setupPointerGlow() {
     if (heroMedia && window.matchMedia("(min-width: 981px)").matches) {
       const lift = ((event.clientY / window.innerHeight) - .5) * -14;
       heroMedia.style.setProperty("--parallax-y", `${lift.toFixed(1)}px`);
+    }
+    if (holoScene && window.matchMedia("(min-width: 981px)").matches) {
+      const tiltY = ((event.clientX / window.innerWidth) - .5) * 10;
+      const tiltX = ((event.clientY / window.innerHeight) - .5) * -8;
+      holoScene.style.setProperty("--tilt-x", `${tiltX.toFixed(2)}deg`);
+      holoScene.style.setProperty("--tilt-y", `${tiltY.toFixed(2)}deg`);
     }
   }, { passive: true });
 }
