@@ -69,20 +69,19 @@
                 <span></span><span></span><span></span><span></span><span></span>
                 <span></span><span></span><span></span><span></span><span></span>
                 <span></span><span></span>
-                <span></span><span></span><span></span><span></span><span></span>
-                <span></span><span></span><span></span>
               </div>
-              <div class="city-depth"></div>
             </div>
           </div>
-          <div class="orbit-card orbit-innovate"><span></span><strong>Innovate</strong><small>Turn ideas into impact</small></div>
-          <div class="orbit-card orbit-build"><span></span><strong>Build</strong><small>Prototype powerful solutions</small></div>
-          <div class="orbit-card orbit-impact"><span></span><strong>Impact</strong><small>Create lasting value</small></div>
-          <div class="orbit-card orbit-collab"><span></span><strong>Collaborate</strong><small>Work together, build better</small></div>
+          <div class="orbit-row">
+            <div class="orbit-card orbit-innovate"><span></span><strong>Innovate</strong><small>Turn ideas into impact</small></div>
+            <div class="orbit-card orbit-build"><span></span><strong>Build</strong><small>Prototype powerful solutions</small></div>
+            <div class="orbit-card orbit-impact"><span></span><strong>Impact</strong><small>Create lasting value</small></div>
+            <div class="orbit-card orbit-collab"><span></span><strong>Collaborate</strong><small>Work together, build better</small></div>
+          </div>
         </div>
         <aside class="hero-side" aria-label="Event countdown and participation highlights">
           <div class="countdown-card">
-            <p>Registration ends in</p>
+            <p id="countdownLabel">Registration ends in</p>
             <div class="countdown" aria-label="Countdown timer">
               <div><strong id="days">00</strong><span>Days</span></div>
               <div><strong id="hours">00</strong><span>Hours</span></div>
@@ -100,13 +99,6 @@
             </ul>
           </div>
         </aside>
-        <div class="hero-stats" aria-label="Hackathon quick stats">
-          <span><strong>500+</strong>Participants</span>
-          <span><strong>100+</strong>Colleges</span>
-          <span><strong>Rs 1,00,000+</strong>Prize Pool</span>
-          <span><strong>30+</strong>Mentors</span>
-          <span><strong>24</strong>Hours</span>
-        </div>
         <div class="hero-announcement">
           <strong>Announcement</strong>
           <span>Problem statements will be released during the opening ceremony. Register by 21 September 2026.</span>
@@ -207,13 +199,16 @@
           <h2>From check-in to prize distribution</h2>
         </div>
         <div class="timeline">
-          <article><time>08:00</time><h3>Registration and check-in</h3><p>QR-based participant check-in and kit distribution.</p></article>
-          <article><time>09:30</time><h3>Opening ceremony</h3><p>Welcome address, IEEE briefing, and sponsor notes.</p></article>
-          <article><time>10:30</time><h3>Problem release</h3><p>Final domains, requirements, and expected outcomes published.</p></article>
-          <article><time>14:00</time><h3>Mentoring round 1</h3><p>Architecture, feasibility, and user validation support.</p></article>
-          <article><time>20:00</time><h3>Evaluation round 1</h3><p>Prototype progress review and feedback.</p></article>
-          <article><time>09:00</time><h3>Final pitching</h3><p>Presentation, demo, judging, and Q&A.</p></article>
-          <article><time>15:00</time><h3>Valedictory ceremony</h3><p>Prize distribution, certificates, and recognition.</p></article>
+          <article><time>08:15</time><h3>Check-in and kit distribution</h3><p>College ID verification; teams receive Prism Packs (badges, Wi-Fi codes, swag).</p></article>
+          <article><time>09:00</time><h3>Opening ceremony</h3><p>High-energy kickoff, IEEE society intros, and problem statement release.</p></article>
+          <article><time>10:00</time><h3>Hacking commences</h3><p>The 24-hour build clock starts. Round 1: Blueprint Phase begins.</p></article>
+          <article><time>12:30</time><h3>Round 1 results</h3><p>Teams advancing to Round 2 announced, followed by networking lunch.</p></article>
+          <article><time>15:00</time><h3>Round 2: Technical deep dive</h3><p>Qualified teams present architecture and progress to a senior jury.</p></article>
+          <article><time>23:00</time><h3>Round 3</h3><p>Qualified teams present updated work to the jury.</p></article>
+          <article><time>00:00</time><h3>The graveyard shift</h3><p>Focus time with quiet zones active; coffee and tea served through 06:30.</p></article>
+          <article><time>06:00</time><h3>Round 4: Finalists circle</h3><p>Final evaluation round to select teams for the grand pitch.</p></article>
+          <article><time>09:00</time><h3>Hacking ends and final grand pitch</h3><p>All code pushed to repositories; top teams present on the main stage.</p></article>
+          <article><time>10:15</time><h3>Awards ceremony</h3><p>Prizes for track winners, runners-up, and the PrismTech Overall Champion.</p></article>
         </div>
       </section>
 
@@ -253,14 +248,53 @@
 
       <section id="people" class="section">
         <div class="section-heading">
-          <p class="eyebrow">Mentors, Judges, Speakers, and Organizers</p>
+          <p class="eyebrow">Organizing Committee</p>
           <h2>People powering PRISMTECH</h2>
         </div>
         <div class="people-grid">
-          <article><div class="avatar">SC</div><h3>Student General Chair</h3><p>IEEE Student Branch</p><a href="#">LinkedIn</a></article>
-          <article><div class="avatar">VC</div><h3>Vice Chairs</h3><p>Technical and Operations</p><a href="#">LinkedIn</a></article>
-          <article><div class="avatar">FC</div><h3>Faculty Coordinators</h3><p>Department and IEEE advisors</p><a href="#">LinkedIn</a></article>
-          <article><div class="avatar">MJ</div><h3>Mentors and Judges</h3><p>Industry, academia, and IEEE experts</p><a href="#">LinkedIn</a></article>
+          <article class="person-card">
+            <div class="avatar avatar-photo" data-role="chair"><span>SGC</span></div>
+            <h3>Student General Chair</h3>
+            <p>Name pending &mdash; IEEE KLH Student Branch, Aziz Nagar</p>
+            <a href="#">LinkedIn</a>
+          </article>
+          <article class="person-card">
+            <div class="avatar avatar-photo" data-role="vice-chair-1"><span>VC</span></div>
+            <h3>Vice Chair &ndash; Technical</h3>
+            <p>Name pending &mdash; IEEE KLH Student Branch</p>
+            <a href="#">LinkedIn</a>
+          </article>
+          <article class="person-card">
+            <div class="avatar avatar-photo" data-role="vice-chair-2"><span>VC</span></div>
+            <h3>Vice Chair &ndash; Operations</h3>
+            <p>Name pending &mdash; IEEE KLH Student Branch</p>
+            <a href="#">LinkedIn</a>
+          </article>
+          <article class="person-card">
+            <div class="avatar avatar-photo" data-role="faculty-coordinator"><span>FC</span></div>
+            <h3>Dr. Sai Sudha Gadde</h3>
+            <p>Branch Counselor, IEEE KLH SB Aziz Nagar</p>
+            <a href="#">LinkedIn</a>
+          </article>
+          <article class="person-card">
+            <div class="avatar"><span>MJ</span></div>
+            <h3>Mentors and Judges</h3>
+            <p>Industry, academia, and IEEE experts</p>
+            <a href="#">LinkedIn</a>
+          </article>
+        </div>
+      </section>
+
+      <section id="committees" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Committee Structure</p>
+          <h2>Streams and coordination teams</h2>
+          <p>PRISMTECH is organized across the Optic Stream (Photonics), Neural Stream (Computer Society), and Social Stream (Women in Engineering), supported by dedicated coordination teams.</p>
+        </div>
+        <div class="committee-tags">
+          <span>Technical</span><span>Registration</span><span>Hospitality</span><span>Sponsorship</span>
+          <span>Publicity, Media &amp; Creative</span><span>Event Operations</span><span>Logistics</span>
+          <span>Participant Engagement</span><span>Mentor &amp; Judge Coordination</span><span>Finance</span><span>Photography</span>
         </div>
       </section>
 
