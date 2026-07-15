@@ -20,7 +20,12 @@ function setFormMessage(output, message, type = "success") {
 }
 
 function updateCountdown() {
-  const distance = Math.max(0, eventStart - Date.now());
+  const label = document.getElementById("countdownLabel");
+  const now = Date.now();
+  const targetingRegistration = now < registrationDeadline;
+  const target = targetingRegistration ? registrationDeadline : eventStart;
+  if (label) label.textContent = targetingRegistration ? "Registration ends in" : "Hackathon starts in";
+  const distance = Math.max(0, target - now);
   const parts = {
     days: Math.floor(distance / 86400000),
     hours: Math.floor((distance % 86400000) / 3600000),
@@ -248,8 +253,8 @@ function setupRevealAnimations() {
     ".sponsor-row span",
     ".gallery-grid div",
     ".contact-list span",
-    ".hero-stats span",
-    ".admin-stats span"
+    ".admin-stats span",
+    ".committee-tags span"
   ].join(","));
 
   revealItems.forEach((item, index) => {
@@ -290,24 +295,20 @@ function setupPointerGlow() {
   }, { passive: true });
 }
 
+function setupOrbitTouchToggle() {
+  if (!window.matchMedia("(max-width: 980px)").matches) return;
+  document.querySelectorAll(".orbit-card").forEach((card) => {
+    card.addEventListener("click", () => card.classList.toggle("is-active"));
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
-  const navToggle = $(".nav-toggle");
-  const nav = $(".site-nav");
-  navToggle.addEventListener("click", (event) => {
+  $(".nav-toggle").addEventListener("click", (event) => {
+    const nav = $(".site-nav");
     nav.classList.toggle("open");
     event.currentTarget.setAttribute("aria-expanded", nav.classList.contains("open"));
   });
-  document.querySelectorAll(".site-nav a").forEach((link) => link.addEventListener("click", () => {
-    nav.classList.remove("open");
-    navToggle.setAttribute("aria-expanded", "false");
-  }));
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && nav.classList.contains("open")) {
-      nav.classList.remove("open");
-      navToggle.setAttribute("aria-expanded", "false");
-      navToggle.focus();
-    }
-  });
+  document.querySelectorAll(".site-nav a").forEach((link) => link.addEventListener("click", () => $(".site-nav").classList.remove("open")));
   updateCountdown();
   setInterval(updateCountdown, 1000);
   renderAnnouncements();
@@ -318,5 +319,6 @@ document.addEventListener("DOMContentLoaded", () => {
   setupNavigationState();
   setupRevealAnimations();
   setupPointerGlow();
+  setupOrbitTouchToggle();
   renderAdminTable();
 });
